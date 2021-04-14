@@ -10,11 +10,18 @@ Widget card(height, width, color, radius, Widget child, String imageUrl) {
         borderRadius: BorderRadius.circular(radius),
         color: color,
         image: DecorationImage(
-          image: NetworkImage(imageUrl != null
-              ? imageUrl
-              : 'https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg'),
+          image: imageUrl != null
+              ? NetworkImage(imageUrl)
+              : AssetImage('assets/images/white_background.png'),
           fit: BoxFit.cover,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[350],
+            offset: Offset(0, 1),
+            blurRadius: 5,
+          ),
+        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),

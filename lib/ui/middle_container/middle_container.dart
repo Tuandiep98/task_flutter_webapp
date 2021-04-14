@@ -98,8 +98,11 @@ class _MiddleContainerState extends State<MiddleContainer> {
                   middleWith / 2.2,
                   Colors.white,
                   10,
-                  classInfomation(),
-                  null,
+                  classInfomation(
+                    MediaQuery.of(context).size.height / 4.5,
+                    middleWith / 2.2,
+                  ),
+                  'https://mir-s3-cdn-cf.behance.net/project_modules/1400/4d845686128681.5d909dad4ddd3.jpg',
                 ),
               ],
             ),
