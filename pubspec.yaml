@@ -40,6 +40,7 @@ dev_dependencies:
   flutter_dropzone: ^1.0.9
   table_calendar: ^3.0.0
   fl_chart: ^0.35.0
+  percent_indicator: "^2.1.7+2"
   responsive_framework:
     path: responsive_framework/
 # For information on the generic Dart part of this file, see the

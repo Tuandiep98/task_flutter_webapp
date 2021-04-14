@@ -5,7 +5,9 @@ import 'package:flutter/rendering.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import 'widgets/card.dart';
+import 'widgets/class_information.dart';
 import 'widgets/title.dart';
+import 'widgets/weather.dart';
 
 class MiddleContainer extends StatefulWidget {
   @override
@@ -50,9 +52,10 @@ class _MiddleContainerState extends State<MiddleContainer> {
 
   @override
   Widget build(BuildContext context) {
+    var middleWith = MediaQuery.of(context).size.width - 700;
     return Container(
       height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width - 700,
+      width: middleWith,
       decoration: BoxDecoration(
         color: Colors.grey[200],
         boxShadow: [
@@ -74,7 +77,8 @@ class _MiddleContainerState extends State<MiddleContainer> {
             double.infinity,
             Colors.white,
             10,
-            SizedBox(),
+            weather(),
+            'https://img.redbull.com/images/c_fill,w_1500,h_1000,g_auto,f_auto,q_auto/redbullcom/2015/07/27/1331737542701_2/moon-hill-natural-bridge-in-china',
           ),
           title('Homework', 'Here is your homework schedule!', () {}),
           Container(
@@ -82,18 +86,20 @@ class _MiddleContainerState extends State<MiddleContainer> {
               children: <Widget>[
                 card(
                   MediaQuery.of(context).size.height / 3.0,
-                  MediaQuery.of(context).size.width / 3.2,
+                  middleWith / 2.2,
                   Colors.white,
                   10,
                   _chart(),
+                  null,
                 ),
                 Spacer(),
                 card(
                   MediaQuery.of(context).size.height / 3.0,
-                  MediaQuery.of(context).size.width / 3.7,
+                  middleWith / 2.2,
                   Colors.white,
                   10,
-                  SizedBox(),
+                  classInfomation(),
+                  null,
                 ),
               ],
             ),
