@@ -81,28 +81,32 @@ class _MiddleContainerState extends State<MiddleContainer> {
             'https://img.redbull.com/images/c_fill,w_1500,h_1000,g_auto,f_auto,q_auto/redbullcom/2015/07/27/1331737542701_2/moon-hill-natural-bridge-in-china',
           ),
           title('Homework', 'Here is your homework schedule!', () {}),
-          Container(
+          IntrinsicHeight(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                card(
-                  MediaQuery.of(context).size.height / 3.0,
-                  middleWith / 2.2,
-                  Colors.white,
-                  10,
-                  _chart(),
-                  null,
-                ),
-                Spacer(),
-                card(
-                  MediaQuery.of(context).size.height / 3.0,
-                  middleWith / 2.2,
-                  Colors.white,
-                  10,
-                  classInfomation(
-                    MediaQuery.of(context).size.height / 4.5,
+                Expanded(
+                  child: card(
+                    MediaQuery.of(context).size.height / 3.0,
                     middleWith / 2.2,
+                    Colors.white,
+                    10,
+                    _chart(),
+                    null,
                   ),
-                  'https://mir-s3-cdn-cf.behance.net/project_modules/1400/4d845686128681.5d909dad4ddd3.jpg',
+                ),
+                Expanded(
+                  child: card(
+                    MediaQuery.of(context).size.height / 3.0,
+                    middleWith / 2.2,
+                    Colors.white,
+                    10,
+                    classInfomation(
+                      MediaQuery.of(context).size.height / 4.5,
+                      middleWith / 2.2,
+                    ),
+                    'https://mir-s3-cdn-cf.behance.net/project_modules/1400/4d845686128681.5d909dad4ddd3.jpg',
+                  ),
                 ),
               ],
             ),

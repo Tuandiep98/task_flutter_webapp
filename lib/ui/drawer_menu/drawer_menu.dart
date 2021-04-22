@@ -3,10 +3,43 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:task_webapp/models/toolbar.dart';
 
 import 'widgets/list_item.dart';
 
-class DrawerMenuBar extends StatelessWidget {
+class DrawerMenuBar extends StatefulWidget {
+  @override
+  _DrawerMenuBarState createState() => _DrawerMenuBarState();
+}
+
+class _DrawerMenuBarState extends State<DrawerMenuBar> {
+  List<ToolBar> tools = [
+    ToolBar('Dashboard', Icons.dashboard_rounded, true),
+    ToolBar('Class', Icons.school_rounded, false),
+    ToolBar('Schedule', Icons.storage_rounded, false),
+    ToolBar('Homework', Icons.book_rounded, false),
+    ToolBar('Teachers', Icons.group_rounded, false),
+    ToolBar('Settings', Icons.settings, false),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  active(ToolBar i) {
+    tools.forEach((e) {
+      if (e.name != i.name)
+        setState(() {
+          e.isActive = false;
+        });
+      else
+        setState(() {
+          e.isActive = true;
+        });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveVisibility(
@@ -47,14 +80,29 @@ class DrawerMenuBar extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            listItem('Dashboard', () {}, Icons.dashboard_rounded, true),
-            listItem('Class', () {}, Icons.storage_rounded, false),
-            listItem('Schedule', () {}, Icons.calendar_today_rounded, false),
-            listItem('Homework', () {}, Icons.book_rounded, false),
-            listItem('Teachers', () {}, Icons.group_outlined, false),
-            listItem('Settings', () {}, Icons.settings, false),
+            Container(
+              height: MediaQuery.of(context).size.height - 200,
+              child: ListView.builder(
+                itemCount: tools.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    child: listItem(
+                      tools[index],
+                    ),
+                    onTap: () {
+                      active(tools[index]);
+                    },
+                  );
+                },
+              ),
+            ),
             Spacer(),
-            listItem('Logout', () {}, Icons.logout, false),
+            InkWell(
+              child: listItem(ToolBar('Logout', Icons.logout, false)),
+              onTap: () {
+                print('logout');
+              },
+            ),
           ],
         ),
       ),

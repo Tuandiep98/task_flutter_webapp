@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:task_webapp/models/toolbar.dart';
 
-Widget listItem(String title, Function f, IconData i, bool isActive) {
+Widget listItem(ToolBar t) {
   return Padding(
     padding: const EdgeInsets.all(10.0),
     child: MouseRegion(
@@ -9,8 +10,8 @@ Widget listItem(String title, Function f, IconData i, bool isActive) {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: isActive ? Color(0xff30336b) : Colors.white,
-          boxShadow: isActive
+          color: t.isActive ? Color(0xff30336b) : Colors.white,
+          boxShadow: t.isActive
               ? [
                   BoxShadow(
                     color: Color(0xffff7979),
@@ -20,29 +21,26 @@ Widget listItem(String title, Function f, IconData i, bool isActive) {
                 ]
               : [],
         ),
-        child: GestureDetector(
-          onTap: () => f,
-          child: Container(
-            padding: EdgeInsets.fromLTRB(20, 5, 16, 5),
-            child: Row(
-              children: [
-                Icon(
-                  i,
-                  size: 40,
-                  color: isActive ? Colors.white : Colors.grey[400],
+        child: Container(
+          padding: EdgeInsets.fromLTRB(20, 5, 16, 5),
+          child: Row(
+            children: [
+              Icon(
+                t.icon,
+                size: 40,
+                color: t.isActive ? Colors.white : Colors.grey[400],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                t.name,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: t.isActive ? Colors.white : Colors.grey[400],
                 ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: isActive ? Colors.white : Colors.grey[400],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

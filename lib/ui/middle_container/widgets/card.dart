@@ -25,7 +25,9 @@ Widget card(height, width, color, radius, Widget child, String imageUrl) {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: child,
+        child: Expanded(
+          child: child,
+        ),
       ),
     ),
   );

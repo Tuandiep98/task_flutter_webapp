@@ -35,72 +35,76 @@ Widget classInfomation(height, width) {
           ),
         ),
         Spacer(),
-        Row(
-          children: [
-            Icon(
-              Icons.timelapse_rounded,
-              color: Colors.white,
-              size: 24,
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              '3 Days',
-              style: TextStyle(
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.timelapse_rounded,
                 color: Colors.white,
-                fontSize: 18,
+                size: 24,
               ),
-            ),
-            Spacer(),
-            Container(
-              width: 80,
-              height: 40,
-              child: Stack(
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 18,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(
-                          'https://uploadbeta.com/_s/upload/2019/09/19/0340190420c69f887f0f357ad99a8f43.png',
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 18,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(
-                          'https://uploadbeta.com/_s/upload/2019/09/19/0340190420c69f887f0f357ad99a8f43.png',
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 18,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(
-                          'https://uploadbeta.com/_s/upload/2019/09/19/0340190420c69f887f0f357ad99a8f43.png',
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              SizedBox(
+                width: 5,
               ),
-            ),
-          ],
+              Expanded(
+                child: Text(
+                  '3 Days',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Container(
+                width: 80,
+                height: 40,
+                child: Stack(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          radius: 18,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(
+                            'https://uploadbeta.com/_s/upload/2019/09/19/0340190420c69f887f0f357ad99a8f43.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          radius: 18,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(
+                            'https://uploadbeta.com/_s/upload/2019/09/19/0340190420c69f887f0f357ad99a8f43.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          radius: 18,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(
+                            'https://uploadbeta.com/_s/upload/2019/09/19/0340190420c69f887f0f357ad99a8f43.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         )
       ],
     ),
