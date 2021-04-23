@@ -191,6 +191,13 @@ packages:
       relative: true
     source: path
     version: "0.0.14"
+  shimmer:
+    dependency: "direct dev"
+    description:
+      name: shimmer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   simple_gesture_detector:
     dependency: transitive
     description:

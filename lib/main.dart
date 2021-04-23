@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:task_webapp/ui/drawer_menu/drawer_menu.dart';
-
 import 'components/components.dart';
-import 'ui/middle_container/middle_container.dart';
-import 'ui/right_container/right_container.dart';
+import 'ui/form/auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,18 +23,16 @@ class MyApp extends StatelessWidget {
             ResponsiveBreakpoint.resize(1080, name: DESKTOP),
           ],
           background: Container(color: background)),
-      home: Scaffold(
-          // appBar: PreferredSize(
-          //   preferredSize: Size(double.infinity, 66),
-          //   child: MenuBar(),
-          // ),
-          body: Row(
-        children: <Widget>[
-          DrawerMenuBar(),
-          MiddleContainer(),
-          RightContainer(),
-        ],
-      )),
+      home: AuthScreen(),
+      // Scaffold(
+      //   body: Row(
+      //     children: <Widget>[
+      //       DrawerMenuBar(),
+      //       MiddleContainer(),
+      //       RightContainer(),
+      //     ],
+      //   ),
+      // ),
       debugShowCheckedModeBanner: false,
     );
   }

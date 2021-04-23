@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 const Color primary = Color(0xFF1389FD);
@@ -5,6 +6,7 @@ const Color primaryDark = Color(0xFF0276e8);
 const Color primaryLight = Color(0xFFE7F8FF);
 
 const Color textPrimary = Color(0xFF4A4A4A);
+const Color titleButton = Colors.white;
 
 const Color buttonPrimaryDark = Color(0xFF0075E6);
 const Color buttonPrimaryDarkPressed = Color(0xFF006ED9);

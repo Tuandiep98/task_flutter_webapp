@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:task_webapp/models/toolbar.dart';
+import 'package:task_webapp/ui/form/auth.dart';
 
 import 'widgets/list_item.dart';
 
@@ -80,31 +81,38 @@ class _DrawerMenuBarState extends State<DrawerMenuBar> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: MediaQuery.of(context).size.height - 200,
-              child: ListView.builder(
-                itemCount: tools.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    child: listItem(
-                      tools[index],
-                    ),
-                    onTap: () {
-                      active(tools[index]);
-                    },
-                  );
-                },
+            SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.of(context).size.height - 200,
+                child: ListView.builder(
+                  itemCount: tools.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      child: listItem(
+                        tools[index],
+                      ),
+                      onTap: () {
+                        active(tools[index]);
+                      },
+                    );
+                  },
+                ),
               ),
             ),
-            Spacer(),
             InkWell(
               child: listItem(ToolBar('Logout', Icons.logout, false)),
-              onTap: () {
-                print('logout');
-              },
+              onTap: logout,
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void logout() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => AuthScreen(),
       ),
     );
   }
